@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+
+const provider = 'https://bsc-dataseed.binance.org/'
+/* 
+import detectEthereumProvider from '@metamask/detect-provider'
+
+const provider = await detectEthereumProvider()
+//const web3 = new Web3(provider)
+
+if(provider){
+  console.log("Provider detected")
+}else{
+  console.log("Please install metamask")
+} */
 
 function App() {
+
+  //const web3 = new Web3(provider)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <button> Conect Metamsk </button>
+      </div>
+      <div>
+        No connected
+      </div>
+      <div>
+        <input type="text" />
+        <button> Transferir usdt </button>
+      </div>
     </div>
   );
 }
