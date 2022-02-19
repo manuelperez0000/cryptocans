@@ -6,6 +6,9 @@ import Dashboard from "./dashboard/dashboard";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import rundog from '../img/rundog.gif'
 
+import { Provider } from 'react-redux'
+import store from "../store";
+
 function App() {
 
   useEffect(() => {
@@ -70,25 +73,16 @@ function App() {
     const result = str1 + "..." + str2;
     return result
   }
-
-
-
   /*
-
   const num = utilsProvider.utils.toWei("45", "ether")
   console.log("Este es el numero esperado de utils: " + num)
-
-  
-
   const transferir = async () => {
-
     let monto = web3.utils.toWei("45", "ether")
     mycontract.methods.transfer("0x20a4DaBC7C80C1139Ffc84C291aF4d80397413Da", monto).send({ from: wallet })
       .on('transactionHash', (hash)=> {
         console.log(hash);
       })
   }
-
   const setAmmountFunction = (e) => {
     setAmmount(e.target.value)
   } */
@@ -101,8 +95,9 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      {/* <div>
+    <Provider store={store}>
+      <BrowserRouter>
+        {/* <div>
 
         <button onClick={connect}> Conect Metamsk </button>
 
@@ -122,61 +117,62 @@ function App() {
         </> : <>No connected</>}
 
       </div> */}
-      <nav className="px-2 topNav">
-        <div className="d-flex justify-content-between">
-          <div className="d-inline-flex justify-content-between align-items-center">
-            <div>
-              <img height="30px" src={rundog} alt="" />
-              Cryptocans
+        <nav className="px-2 topNav">
+          <div className="d-flex justify-content-between">
+            <div className="d-inline-flex justify-content-between align-items-center">
+              <div>
+                <img height="30px" src={rundog} alt="" />
+                Cryptocans
+              </div>
+
+              <div className="mx-2 d-flex">
+                <Link to="/dashboard" className="link" >
+                  <div className="buttonLink" style={btn1} onClick={() => { changebtnStyle(1) }}>
+                    Dashboard
+                  </div>
+                </Link>
+                <Link to="/market" className="link">
+                  <div className="buttonLink" style={btn2} onClick={() => { changebtnStyle(2) }}>
+                    Market
+                  </div>
+                </Link>
+                <Link className="link" to="/shop">
+                  <div className="buttonLink" style={btn3} onClick={() => { changebtnStyle(3) }}>
+                    Shop
+                  </div>
+                </Link>
+                <Link className="link" to="/rece">
+                  <div className="buttonLink" style={btn4} onClick={() => { changebtnStyle(4) }}>
+                    Race
+                  </div>
+                </Link>
+              </div>
+
             </div>
-
-            <div className="mx-2 d-flex">
-              <Link to="/dashboard" className="link" >
-                <div className="buttonLink" style={btn1} onClick={() => { changebtnStyle(1) }}>
-                  Dashboard
-                </div>
-              </Link>
-              <Link to="/market" className="link">
-                <div className="buttonLink" style={btn2} onClick={() => { changebtnStyle(2) }}>
-                  Market
-                </div>
-              </Link>
-              <Link className="link" to="/shop">
-                <div className="buttonLink" style={btn3} onClick={() => { changebtnStyle(3) }}>
-                  Shop
-                </div>
-              </Link>
-              <Link className="link" to="/rece">
-                <div className="buttonLink" style={btn4} onClick={() => { changebtnStyle(4) }}>
-                  Race
-                </div>
-              </Link>
+            <div className="d-flex align-items-center">
+              {wallet ? <>
+                {resumeWallet(wallet)}
+              </> : <>
+                <div className="buttonLink mx-1"> Connect Wallet </div>
+              </>}
             </div>
-
           </div>
-          <div className="d-flex align-items-center">
-            {wallet ? <>
-              {resumeWallet(wallet)}
-            </> : <>
-              <div className="buttonLink mx-1"> Connect Wallet </div>
-            </>}
-          </div>
-        </div>
-      </nav>
-      
+        </nav>
 
-      <Switch>
-        <Route path="/market">
-          <Market />
-        </Route>
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
-        <Route path="/" exact>
-          <Dashboard />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+
+        <Switch>
+          <Route path="/market">
+            <Market />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/" exact>
+            <Dashboard />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
