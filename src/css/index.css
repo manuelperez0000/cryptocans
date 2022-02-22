@@ -6,9 +6,15 @@
     --light2:rgba(255, 255, 255, 0.5);
     --line:rgb(65,60,80);
     --blue:rgb(0, 79, 168);
+    --blue2:rgb(13, 99, 197);
+    --blue3:rgb(3, 50, 104);
+    --green:rgb(12, 160, 86);
+    --transparentLight:rgba(210, 230, 255, 0.1);
 }
 h1,h2,h3,h4,h5,h6,p,div{
     color: var(--light1);
+    margin: 0px;
+    padding: 0px;
 }
 body{
     color: var(--light1);
@@ -21,6 +27,18 @@ a{
     text-decoration: none;
     color: var(--light1);
 }
+.clearFilterButton{
+    text-decoration: none;
+    background-color: var(--blue);
+    color: var(--light1);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+.clearFilterButton:hover{
+    color: antiquewhite;
+    background-color: var(--blue2);
+}
+
 .link{
     border: none;
     text-decoration: none;
@@ -29,9 +47,10 @@ a{
     color:var(--light1);
     border:none;
     padding: 8px 16px;
+    background-color: rgb(2, 103, 170);
 }
 .buttonLink:hover{
-    background-color: rgba(255, 255, 255, 0.521);
+    background-color: rgb(0, 129, 214);
 }
 .topNav{
     background-color: var(--dark1);
@@ -44,6 +63,9 @@ a{
 .secondNavButton{
     margin-bottom: -2px;
     padding: 5px 10px;
+    background-color: transparent;
+    border: none;
+    color:var(--light1);
 }
 .active{
     border-bottom: 3px solid var(--blue);
@@ -77,4 +99,126 @@ a{
 }
 @keyframes example {
   100%{ transform: rotate(180deg);}
+}
+.sidebar{
+
+    height: 100vh;
+    color: white;
+    padding: 20px 0 20px 0;
+}
+.select{
+    background-color: transparent;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    color: var(--light1);
+    padding: 5px;
+}
+.optionFilter{
+    background-color: var(--dark1);
+    color: var(--light1);
+}
+.sidebarText{
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--light2);
+}
+
+.textRaza{
+    font-size: 14px;
+}
+.listItems{
+    padding-top: 20px;
+    border-left:1px solid var(--line);
+}
+.nftCard{
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+.nftFeatures{
+    background-color: rgba(0, 0, 0, 0.089);
+}
+.nftName{
+    font-size: 20px;
+    margin: 0px;
+}
+.rarity{
+    border-radius: 6px;
+    background-color: rgba(94, 191, 255, 0.603);
+    padding: 2px 5px;
+}
+.raza{
+    color: gray;
+}
+.box{
+    background-color: var(--transparentLight);
+    height: 180px;
+    min-width: 150px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+}
+.dogFeatures{
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--transparentLight);
+    width: 100%;
+    position: relative;
+}
+.hr{
+    margin: 5px 0px; 
+    padding: 0px;
+}
+.nftSmall{
+    background-color: var(--transparentLight);
+    height:100px;
+    border-radius: 8px;
+    padding: 5px;
+}
+.btn-list{
+    color: var(--light1) !important;
+    background-color: var(--transparentLight) !important;
+}
+.btn-list:hover{
+    background-color: var(--line) !important;
+}
+.race{
+    color: gray;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    height: 50vh;
+    margin-top: 50px;
+    border: 2px solid var(--light1);
+    transition: 0.3s;
+    background-color: var(--transparentLight);
+}
+.race:hover{
+    border: 2px solid var(--green);
+    transform: rotate(-1deg);
+    background-color: var(--light1);
+    cursor: pointer;
+}
+.center-v{
+    height: 90vh;
+    display: inline-flex;
+    align-items: center;
+}
+.box2{
+    height: 280px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 40px;
+}
+.box2.c{
+    background-color: rgba(38, 127, 179, 0.5);
+}
+.box2.e{
+    background-color: rgba(7, 156, 111, 0.5);
+}
+.box2.l{
+    background-color: rgba(163, 80, 241, 0.5);
 }
