@@ -1,22 +1,24 @@
-import React, { useEffect } from "react"
-import Swal from "sweetalert2"
-import withReactContent from 'sweetalert2-react-content'
-import Loader from "../loader/loader"
+import React,{useEffect} from "react"
 import cc from '../../img/cc.png'
 import ccan from '../../img/ccan.png'
 
+import { useDispatch } from 'react-redux'
+import { getLocation } from "../../store/redux"
+import { useLocation } from "react-router-dom"
 
-import { useDispatch, useSelector } from 'react-redux'
-const MySwal = withReactContent(Swal)
+//import Swal from "sweetalert2"
+//import withReactContent from 'sweetalert2-react-content'
+//const MySwal = withReactContent(Swal)
 
 const Dashboard = () => {
-
-    const alertTest = () => {
-        MySwal.fire({
-            title: 'Auto close alert!',
-        })
-        Swal.showLoading()
-    }
+    
+    /* const alertTest = () => { MySwal.fire({title:'Auto close alert!'})  Swal.showLoading() } */
+    
+    const location = useLocation()
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(getLocation(location.pathname))
+    },[])
 
     return (
         <>
@@ -24,6 +26,8 @@ const Dashboard = () => {
                 <div className="row g-2">
                     <div className="col-md-5 ">
                         <div className="">
+                            <div>
+                            </div>
                             <div className="row g-2">
                                 <div className="col-6">
                                     <div className="box text-center d-flex align-items-center">
@@ -66,7 +70,7 @@ const Dashboard = () => {
                     <div className="col-7 ">
                         <div className="">
                             <div className="dogFeatures">
-                                Wallet: <a href="#">ddf6...d5fg4</a>
+                                Wallet: <a href="/">ddf6...d5fg4</a>
                                 <hr className="hr" />
                                 <div className="d-flex justify-content-around">
                                     <div className="text-center">
@@ -86,7 +90,7 @@ const Dashboard = () => {
                                                     NFT 1
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -99,7 +103,7 @@ const Dashboard = () => {
                                                     NFT 2
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -112,7 +116,7 @@ const Dashboard = () => {
                                                     NFT 3
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -125,7 +129,7 @@ const Dashboard = () => {
                                                     NFT 4
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -138,7 +142,7 @@ const Dashboard = () => {
                                                     NFT 5
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -151,7 +155,7 @@ const Dashboard = () => {
                                                     NFT 6
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -166,7 +170,7 @@ const Dashboard = () => {
                                                     NFT 1
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -179,7 +183,7 @@ const Dashboard = () => {
                                                     NFT 2
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -192,7 +196,7 @@ const Dashboard = () => {
                                                     NFT 3
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -205,7 +209,7 @@ const Dashboard = () => {
                                                     NFT 4
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -218,7 +222,7 @@ const Dashboard = () => {
                                                     NFT 5
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 
@@ -231,7 +235,7 @@ const Dashboard = () => {
                                                     NFT 6
                                                 </div>
                                                 <div>
-                                                    <button className="btn btn-list btn-sm"><i class="bi-list"></i></button>
+                                                    <button className="btn btn-list btn-sm"><i className="bi-list"></i></button>
                                                 </div>
                                             </div>
 

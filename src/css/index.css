@@ -222,3 +222,59 @@ a{
 .box2.l{
     background-color: rgba(163, 80, 241, 0.5);
 }
+
+
+.w-race{
+    background-color: rgb(0, 255, 157);
+}
+
+.wRace{
+    border: 2px solid rgb(180, 101, 10);
+    width: 100%;
+    background-color: rgba(95, 33, 22, 0.89);
+    background-image: url(../img/piso.png);
+    background-position: 0%;
+    animation-duration: 20s;
+    animation-name: piso;
+}
+.wRace2{
+    border: 2px solid rgb(180, 101, 10);
+    width: 100%;
+    background-image: url(../img/piso.png);
+}
+
+@keyframes piso{
+    0% { background-position: 200%;}
+    100% {background-position: 0%;}
+}
+
+
+.parado{
+    height:50px;
+    margin-left: 90%;
+}
+.corriendo{
+    height: 50px;
+    position: relative;
+    animation-name: perroAnimacion;
+    animation-duration: 20s;
+    animation-timing-function:ease-in;
+}
+
+@keyframes perroAnimacion {
+  0%   {left:0px; top:0px;}
+  100% {left:90%; top:0px;}
+}
+
+.corriendo2{
+    height: 50px;
+    position: relative;
+    animation-name: perroAnimacion2;
+    animation-duration: 19.7s;
+    animation-timing-function:ease-in;
+}
+
+@keyframes perroAnimacion2 {
+  0%   {left:0px; top:0px;}
+  100% {left:90%; top:0px;}
+}

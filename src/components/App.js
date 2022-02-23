@@ -1,4 +1,4 @@
- import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Market from "./market/market";
 import Dashboard from "./dashboard/dashboard";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
@@ -9,20 +9,22 @@ import Race from "./race/race";
 import Shop from "./shop/shop";
 
 function App() {
-  const  {wallet}  = useSelector(state => state.reduxState)
+
+  const { wallet, location } = useSelector(state => state.reduxState)
   const dispatch = useDispatch()
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     dispatch(getWallet())
-  },[dispatch])
+    changebtnStyle()
+  }, [dispatch,location])
 
 
-/*   const [wallet, setWallet] = useState("")
-  const [chain, setChain] = useState("")
-  const [saldo, setSaldo] = useState(0)
-  const [ammount, setAmmount] = useState(0)
-  const [connected, setConnected] = useState(false)
-  const [symbol, setSymbol] = useState("")*/
+  /*   const [wallet, setWallet] = useState("")
+    const [chain, setChain] = useState("")
+    const [saldo, setSaldo] = useState(0)
+    const [ammount, setAmmount] = useState(0)
+    const [connected, setConnected] = useState(false)
+    const [symbol, setSymbol] = useState("")*/
 
 
   /* const addressContract = "0x78f959923Ed10Af70729fa020C16Bd66AEE10083"
@@ -38,30 +40,30 @@ function App() {
     console.log(chain)
   } */
 
-/*   const connect = async () => {
-
-    if (typeof window.ethereum !== 'undefined') {
-
-      const accounts = await window.ethereum.request({ 'method': 'eth_requestAccounts' })
-      if (accounts) {
-        setWallet(accounts[0])
-        setConnected(true)
-        //console.log(accounts)
+  /*   const connect = async () => {
+  
+      if (typeof window.ethereum !== 'undefined') {
+  
+        const accounts = await window.ethereum.request({ 'method': 'eth_requestAccounts' })
+        if (accounts) {
+          setWallet(accounts[0])
+          setConnected(true)
+          //console.log(accounts)
+        }
+  
+        mycontract.methods.balanceOf(accounts[0]).call().then((r) => {
+          const saldoWallet = Math.round(web3.utils.fromWei(r, 'ether'))
+          setSaldo(saldoWallet)
+        })
+  
+        mycontract.methods.symbol().call().then((sym) => {
+          setSymbol(sym)
+        })
+  
+      } else {
+        alert("No metamask installed")
       }
-
-      mycontract.methods.balanceOf(accounts[0]).call().then((r) => {
-        const saldoWallet = Math.round(web3.utils.fromWei(r, 'ether'))
-        setSaldo(saldoWallet)
-      })
-
-      mycontract.methods.symbol().call().then((sym) => {
-        setSymbol(sym)
-      })
-
-    } else {
-      alert("No metamask installed")
-    }
-  } */
+    } */
 
   /*
   const num = utilsProvider.utils.toWei("45", "ether")
@@ -90,82 +92,82 @@ function App() {
   const [btn1, setBtn1] = useState(bg2)
   const [btn2, setBtn2] = useState(bg1)
   const [btn3, setBtn3] = useState(bg1)
-  const [btn4, setBtn4] = useState(bg1) 
+  const [btn4, setBtn4] = useState(bg1)
 
-  const changebtnStyle = (x) => {
-    if (x == 1) { setBtn1(bg2); setBtn2(bg1); setBtn3(bg1); setBtn4(bg1) }
-    if (x == 2) { setBtn1(bg1); setBtn2(bg2); setBtn3(bg1); setBtn4(bg1) }
-    if (x == 3) { setBtn1(bg1); setBtn2(bg1); setBtn3(bg2); setBtn4(bg1) }
-    if (x == 4) { setBtn1(bg1); setBtn2(bg1); setBtn3(bg1); setBtn4(bg2) }
-  } 
+  const changebtnStyle = () => {
+    if (location === "/dashboard") { setBtn1(bg2); setBtn2(bg1); setBtn3(bg1); setBtn4(bg1) }
+    if (location === "/market") { setBtn1(bg1); setBtn2(bg2); setBtn3(bg1); setBtn4(bg1) }
+    if (location === "/shop") { setBtn1(bg1); setBtn2(bg1); setBtn3(bg2); setBtn4(bg1) }
+    if (location === "/race") { setBtn1(bg1); setBtn2(bg1); setBtn3(bg1); setBtn4(bg2) }
+  }
 
-  const connect = ()=>{
+  const connect = () => {
     dispatch(getWallet())
   }
 
   return (
-      <BrowserRouter>
-        <nav className="px-2 topNav">
-          <div className="d-flex justify-content-between">
-            <div className="d-inline-flex justify-content-between align-items-center">
-              <div>
-                <img height="30px" src={rundog} alt="" />
-                Cryptocans
-              </div>
-
-              <div className="mx-2 d-flex">
-                <Link to="/dashboard" className="link" >
-                  <div className="buttonLink" style={btn1} onClick={() => { changebtnStyle(1) }}>
-                    Dashboard
-                  </div>
-                </Link>
-                <Link to="/market" className="link">
-                  <div className="buttonLink" style={btn2} onClick={() => { changebtnStyle(2) }}>
-                    Market
-                  </div>
-                </Link>
-                <Link className="link" to="/shop">
-                  <div className="buttonLink" style={btn3} onClick={() => { changebtnStyle(3) }}>
-                    Shop
-                  </div>
-                </Link>
-                <Link className="link" to="/rece">
-                  <div className="buttonLink" style={btn4} onClick={() => { changebtnStyle(4) }}>
-                    Race
-                  </div>
-                </Link>
-              </div>
-
+    <BrowserRouter>
+      <nav className="px-2 topNav">
+        <div className="d-flex justify-content-between">
+          <div className="d-inline-flex justify-content-between align-items-center">
+            <div>
+              <img height="30px" src={rundog} alt="" />
+              Cryptocans
             </div>
-            <div className="d-flex align-items-center">
-              {wallet ? <>
-                {resumeWallet(wallet)}
-              </> : <>
-                <button onClick={connect} className="buttonLink mx-1"> Connect Wallet </button>
-              </>}
+
+            <div className="mx-2 d-flex">
+              <Link to="/dashboard" className="link" >
+                <div className="buttonLink" style={btn1} onClick={() => { changebtnStyle() }}>
+                  Dashboard
+                </div>
+              </Link>
+              <Link to="/market" className="link">
+                <div className="buttonLink" style={btn2} onClick={() => { changebtnStyle() }}>
+                  Market
+                </div>
+              </Link>
+              <Link className="link" to="/shop">
+                <div className="buttonLink" style={btn3} onClick={() => { changebtnStyle() }}>
+                  Shop
+                </div>
+              </Link>
+              <Link className="link" to="/race">
+                <div className="buttonLink" style={btn4} onClick={() => { changebtnStyle() }}>
+                  Race
+                </div>
+              </Link>
             </div>
+
           </div>
-        </nav>
+          <div className="d-flex align-items-center">
+            {wallet ? <>
+              {resumeWallet(wallet)}
+            </> : <>
+              <button onClick={connect} className="buttonLink mx-1"> Connect Wallet </button>
+            </>}
+          </div>
+        </div>
+      </nav>
 
 
-        <Switch>
-          <Route path="/market">
-            <Market />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/rece">
-            <Race />
-          </Route>
-          <Route path="/shop">
-            <Shop />
-          </Route>
-          <Route path="/" exact>
-            <Dashboard />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route path="/market">
+          <Market />
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
+        </Route>
+        <Route path="/race">
+          <Race />
+        </Route>
+        <Route path="/shop">
+          <Shop />
+        </Route>
+        <Route path="/" exact>
+          <Dashboard />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

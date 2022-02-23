@@ -1,8 +1,17 @@
-import React, { useEffect, useState } from "react"
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState,useEffect } from "react"
 import perro from '../../img/perro.png'
 
+import { useDispatch } from 'react-redux'
+import { getLocation } from "../../store/redux"
+import { useLocation } from "react-router-dom"
+
 const Market = () => {
+
+    const location = useLocation()
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(getLocation(location.pathname))
+    },[])
 
     const [rango, setRango] = useState(0)
 
