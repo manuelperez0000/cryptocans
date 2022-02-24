@@ -4,14 +4,13 @@ import './css/index.css';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import store from "./store";
-import { Provider } from 'react-redux'
+import { DataProvider } from './context/DataContext'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <DataProvider>
       <App />
-    </Provider>
+    </DataProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

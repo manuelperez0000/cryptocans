@@ -1,14 +1,6 @@
-import React,{useEffect} from "react";
-import { useDispatch } from 'react-redux'
-import { getLocation } from "../../store/redux"
-import { useLocation } from "react-router-dom"
-
+import React from "react";
 const Shop = () => {
-    const location = useLocation()
-    const dispatch = useDispatch()
-    useEffect(()=>{
-        dispatch(getLocation(location.pathname))
-    },[])
+ 
     return (
         <div className="container p-2">
             <div className="center-v w-100">

@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from 'react-redux'
-import { getLocation } from "../../store/redux"
-import { useLocation } from "react-router-dom"
-import perrito from '../../img/rundog.gif'
-import perro from '../../img/perro.png'
-import perroEstatico from '../../img/perroEstatico.png'
-const Race = () => {
+import React, {  useState } from "react";
+import perrito from '../../../img/rundog.gif'
+import perroEstatico from '../../../img/perroEstatico.png'
+const Race = () => { 
 
     const [corriendo, setCorriendo] = useState(false)
-    const location = useLocation()
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(getLocation(location.pathname))
-    }, [])
+
     const [ wRace,setWrace] = useState("wRace2")
 
     const inicioCarrera = () => {
